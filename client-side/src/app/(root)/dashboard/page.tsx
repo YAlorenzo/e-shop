@@ -1,6 +1,7 @@
 import { NO_INDEX_PAGE } from '@/constants/seo.constants';
 import type { Metadata } from 'next';
 import { Dashboard } from './Dashboard';
+import { Suspense } from 'react';
 
 
 export const metadata: Metadata = {
@@ -9,5 +10,7 @@ export const metadata: Metadata = {
 }
 
 export default function DashboardPage() {
-	return <Dashboard />
+	return  <Suspense fallback={<div>Загрузка...</div>}>
+      <Dashboard />
+    </Suspense>
 }
